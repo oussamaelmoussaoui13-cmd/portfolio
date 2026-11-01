@@ -3,15 +3,11 @@
    ----------------------------------------------------------
    C'est le SEUL fichier à modifier pour ajouter un projet.
 
-   ⚠️ Les projets ci-dessous sont des EXEMPLES à remplacer
-   par vos vrais projets (ils affichent un badge « Exemple »).
-   Supprimez la ligne `example: true` une fois le projet réel.
-
    Champs disponibles :
    - title        (obligatoire) Titre du projet
-   - context      Ex. : "Projet de formation", "Projet personnel", "Projet de groupe"
+   - context      Ex. : "Projet de formation", "Projet personnel"
    - date         Ex. : "2025"
-   - description  (obligatoire) Description courte (2-3 lignes) affichée sur la carte
+   - description  (obligatoire) Description courte affichée sur la carte
    - details      Description longue affichée dans la fenêtre de détail
    - role         Votre rôle dans le projet
    - features     Liste des fonctionnalités principales
@@ -21,59 +17,87 @@
    - gallery      Liste de captures supplémentaires
    - github       Lien vers le code source
    - demo         Lien vers une démo en ligne (laisser vide s'il n'y en a pas)
+   - aiAssisted   true = affiche le badge « Assisté par IA » et le bloc explicatif
    - example      true = projet d'exemple (badge jaune)
    ========================================================== */
 
 window.PROJECTS = [
   {
-    example: true,
-    title: "[Titre du projet 1]",
-    context: "[Contexte — ex. Projet de formation]",
-    date: "[Année]",
-    description: "[À COMPLÉTER — description courte du projet : son objectif et ce qu'il permet de faire.]",
-    details: "[À COMPLÉTER — présentation détaillée du projet.]",
-    role: "[À COMPLÉTER — votre rôle dans le projet.]",
+    title: "Gestion de parking",
+    context: "",
+    date: "",
+    description:
+      "Application web de gestion d'un parking : suivi des véhicules stationnés, calcul automatique du montant à payer selon la durée et la catégorie, et état du parking en temps réel.",
+    details:
+      "Application web en PHP connectée à une base de données. La page principale liste les véhicules actuellement stationnés en croisant trois tables (stationnements, véhicules et catégories), calcule pour chacun la durée de stationnement et le montant dû selon le tarif horaire de sa catégorie, et permet d'enregistrer les entrées et les sorties.",
+    role:
+      "Conception du projet et pilotage complet du développement : définition des fonctionnalités et de la structure de la base de données, guidage de l'IA, relecture et validation de chaque partie du code.",
     features: [
-      "[Fonctionnalité 1]",
-      "[Fonctionnalité 2]"
+      "Tableau des véhicules stationnés : place, immatriculation, marque, catégorie, couleur, heure d'arrivée",
+      "Calcul de la durée de stationnement et du montant à payer selon le tarif horaire de la catégorie",
+      "Enregistrement des entrées et des sorties de véhicules",
+      "Info-bulle « état du parking » : places occupées et libres, sorties du jour, montant encaissé dans la journée",
+      "Requêtes SQL avec jointures et requêtes préparées (PDO)",
+      "Échappement des données affichées pour se protéger des injections HTML (XSS)"
     ],
-    challenges: "[À COMPLÉTER — difficultés rencontrées et ce que vous avez appris.]",
-    technologies: ["PHP", "Laravel", "MySQL"],
+    challenges: "",
+    technologies: ["PHP", "SQL", "PDO", "HTML"],
     image: "",
     gallery: [],
     github: "",
-    demo: ""
+    demo: "",
+    aiAssisted: true
   },
   {
-    example: true,
-    title: "[Titre du projet 2]",
-    context: "[Contexte]",
-    date: "[Année]",
-    description: "[À COMPLÉTER — description courte du projet.]",
-    details: "",
-    role: "",
-    features: [],
+    title: "Calculatrice",
+    context: "",
+    date: "",
+    description:
+      "Calculatrice de bureau en Java Swing avec interface personnalisée, opérations avancées (puissance, racine carrée, pourcentage), saisie au clavier et gestion des erreurs.",
+    details:
+      "Application de bureau développée en Java avec la bibliothèque Swing. La fenêtre possède sa propre barre de titre (déplaçable, avec boutons réduire et fermer) et un écran à deux lignes affichant l'opération en cours et le résultat. Les calculs sont isolés dans des méthodes dédiées et les cas d'erreur sont gérés par des exceptions.",
+    role:
+      "Conception de l'application et pilotage complet du développement : définition des fonctionnalités et de l'interface, guidage de l'IA, relecture et validation du code.",
+    features: [
+      "Opérations : addition, soustraction, multiplication, division, puissance, racine carrée, pourcentage, changement de signe",
+      "Enchaînement des opérations et affichage de l'expression en cours",
+      "Saisie au clavier (chiffres, opérateurs, Entrée pour valider, Échap pour effacer)",
+      "Gestion des erreurs : division par zéro, racine d'un nombre négatif, résultat trop grand, saisie invalide",
+      "Affichage en notation scientifique pour les très grands et très petits nombres",
+      "Fenêtre sans bordure système avec barre de titre personnalisée et déplaçable"
+    ],
     challenges: "",
-    technologies: ["Java"],
+    technologies: ["Java", "Swing"],
     image: "",
     gallery: [],
     github: "",
-    demo: ""
+    demo: "",
+    aiAssisted: true
   },
   {
-    example: true,
-    title: "[Titre du projet 3]",
-    context: "[Contexte]",
-    date: "[Année]",
-    description: "[À COMPLÉTER — description courte du projet.]",
-    details: "",
-    role: "",
-    features: [],
+    title: "Devinette de nombre",
+    context: "",
+    date: "",
+    description:
+      "Jeu en Python avec interface graphique Tkinter : trouver un nombre mystère en un nombre d'essais limité, avec trois niveaux de difficulté et sauvegarde des records.",
+    details:
+      "Jeu de bureau développé en Python avec Tkinter. Le joueur choisit un niveau, propose des nombres et reçoit une indication (« plus grand » ou « plus petit ») jusqu'à trouver le nombre mystère ou épuiser ses essais. Le meilleur score de chaque niveau est enregistré dans un fichier texte.",
+    role:
+      "Conception du jeu et pilotage complet du développement : définition des règles et de l'interface, guidage de l'IA, relecture et validation du code.",
+    features: [
+      "Trois niveaux : Facile (1 à 20, 6 essais), Moyen (1 à 50, 7 essais), Difficile (1 à 100, 7 essais)",
+      "Indications « plus grand » / « plus petit » après chaque essai",
+      "Affichage des essais restants et de l'historique des propositions",
+      "Vérification de la saisie (nombre valide, compris dans l'intervalle du niveau)",
+      "Record par niveau sauvegardé dans un fichier et affiché à l'écran",
+      "Validation possible avec la touche Entrée"
+    ],
     challenges: "",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["Python", "Tkinter"],
     image: "",
     gallery: [],
     github: "",
-    demo: ""
+    demo: "",
+    aiAssisted: true
   }
 ];

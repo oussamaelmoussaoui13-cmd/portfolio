@@ -10,6 +10,9 @@
   var ICON_EXTERNAL =
     '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+  var ICON_SPARK =
+    '<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2Zm6.5 11 .9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6Z"/></svg>';
+
   var projects = [];
   var grid, filtersEl, modal, modalBody;
   var lastFocused = null;
@@ -66,6 +69,7 @@
           mediaHTML(project, "project-card__placeholder") +
           (project.context ? '<span class="project-card__tag">' + esc(project.context) + "</span>" : "") +
           (project.example ? '<span class="project-card__tag project-card__tag--example">Exemple</span>' : "") +
+          (project.aiAssisted ? '<span class="project-card__tag project-card__tag--ai">' + ICON_SPARK + " Assisté par IA</span>" : "") +
         "</div>" +
         '<div class="project-card__body">' +
           '<h3 class="project-card__title"><button type="button" data-open="' + index + '">' + esc(project.title) + "</button></h3>" +
@@ -143,6 +147,15 @@
     html += "<h4>Présentation</h4><p>" + esc(p.details || p.description) + "</p>";
 
     if (p.role) html += "<h4>Mon rôle</h4><p>" + esc(p.role) + "</p>";
+
+    if (p.aiAssisted) {
+      html += '<div class="ai-note">' +
+        '<p class="ai-note__title">' + ICON_SPARK + " Développement assisté par IA</p>" +
+        "<p>Ce projet a été réalisé avec l'assistance d'une intelligence artificielle, que j'ai entièrement " +
+        "<strong>guidée, révisée et supervisée</strong>. J'ai mobilisé mes connaissances en développement pour " +
+        "définir le besoin, orienter les choix techniques, relire et valider le code produit.</p>" +
+        "</div>";
+    }
 
     if (p.features && p.features.length) {
       html += '<h4>Fonctionnalités</h4><ul class="modal__list">' +
